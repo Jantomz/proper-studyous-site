@@ -3,7 +3,7 @@ import LogoHero from "../atoms/logoHero";
 
 export default function Navbar() {
   return (
-    <div className="fixed z-10 flex w-full bg-greenishTrans" id="navbar">
+    <div className="fixed z-10 flex w-full bg-midDarkGreenTrans" id="navbar">
       <div className="z-40">
         <LogoHero></LogoHero>
       </div>
@@ -26,6 +26,9 @@ export default function Navbar() {
         </li>
         <li>
           <NavbarBtn name="About Us"></NavbarBtn>
+        </li>
+        <li>
+          <NavbarBtn name="Donate" goto="/donate"></NavbarBtn>
         </li>
         <li>
           <NavbarBtn name="Sign In" goto="/signIn"></NavbarBtn>

@@ -1,4 +1,45 @@
+import React, { useState } from "react";
+// import "https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js";
+
+// Must be called in the same order at the top level of a function
+// const [initial state, function] = useState();
+
 export default function MolNotes() {
+  const [title, setValue] = useState("");
+  // WILL RESET EACH TIME AN INPUT IS USED, BEWARE\
+  const [name, setName] = useState("");
+  const [classe, setClasse] = useState("");
+  const [datey, setDatey] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const handleChange = (event: any) => {
+    setValue(event.target.value);
+  };
+
+  const handleName = (event: any) => {
+    setName(event.target.value);
+  };
+
+  const handleClass = (event: any) => {
+    setClasse(event.target.value);
+  };
+
+  const handleDate = (event: any) => {
+    setDatey(event.target.value);
+  };
+
+  const handleNotes = (event: any) => {
+    setNotes(event.target.value);
+  };
+
+  function handleButton() {
+    console.log(title);
+    console.log(name);
+    console.log(classe);
+    console.log(datey);
+    console.log(notes);
+  }
+
   return (
     <div className="h-screen w-full bg-basWhite pt-28">
       <div className="w-fill mx-36 mt-16 flex h-5/6 rounded-xl bg-mintWhite pt-10">
@@ -11,6 +52,9 @@ export default function MolNotes() {
             <input
               type="text"
               id="title"
+              name="title"
+              onChange={handleChange}
+              value={title}
               className="mt-3 h-10 w-5/6 bg-basWhite"
             ></input>
 
@@ -24,6 +68,9 @@ export default function MolNotes() {
             <input
               type="text"
               id="name"
+              name="name"
+              onChange={handleName}
+              value={name}
               className="mt-3 h-10 w-5/6 bg-basWhite"
             ></input>
 
@@ -36,7 +83,10 @@ export default function MolNotes() {
             <br></br>
             <input
               type="text"
-              id="class"
+              id="classe"
+              name="classe"
+              onChange={handleClass}
+              value={classe}
               className="mt-3 h-10 w-5/6 bg-basWhite"
             ></input>
 
@@ -49,7 +99,10 @@ export default function MolNotes() {
             <br></br>
             <input
               type="text"
-              id="date"
+              id="datey"
+              name="datey"
+              onChange={handleDate}
+              value={datey}
               className="mt-3 h-10 w-5/6 bg-basWhite"
             ></input>
 
@@ -62,6 +115,9 @@ export default function MolNotes() {
             <br></br>
             <textarea
               id="notes"
+              name="notes"
+              onChange={handleNotes}
+              value={notes}
               className="mt-3 h-32 w-5/6 bg-basWhite"
             ></textarea>
           </form>
@@ -79,7 +135,11 @@ export default function MolNotes() {
               <option value="third">Third Value</option>
             </select>
             <div className="flex place-content-center items-center">
-              <button id="submitButton" className="mt-4 bg-minty px-6 py-2">
+              <button
+                onClick={handleButton}
+                id="submitButton"
+                className="mt-4 bg-minty px-6 py-2"
+              >
                 Submit
               </button>
             </div>
@@ -90,10 +150,3 @@ export default function MolNotes() {
     </div>
   );
 }
-
-// const button = document.getElementById("submitButton");
-
-// button.addEventListener("click", function () {
-//   const title = document.getElementById("title");
-//   console.log(title);
-// });
