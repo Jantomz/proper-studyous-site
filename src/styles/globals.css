@@ -28,3 +28,15 @@
   text-decoration: underline solid currentColor;
   text-underline-offset: 8px;
 }
+
+#homeLMB {
+  cursor: pointer;
+}
+
+#homeLMB:hover {
+  background-color: #6b9080;
+}
+
+html {
+  scroll-behavior: smooth;
+}

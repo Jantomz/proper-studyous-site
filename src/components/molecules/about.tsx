@@ -9,7 +9,7 @@ export default function About() {
   const ContentJake =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Just kidding loll, but I code in HTML, JS, CSS, Java, Python, and google search bar. I enjoy solving problems and making the best projects possible.";
   return (
-    <div className="rounded-md bg-mintWhite p-20 text-4xl">
+    <div id="aboutsec" className="rounded-md bg-mintWhite p-20 text-4xl">
       <div>About Us:</div>
       <div className=" place-content-evenly gap-12 md:flex">
         <ContainerCard title="Jaden" content={ContentJaden}></ContainerCard>

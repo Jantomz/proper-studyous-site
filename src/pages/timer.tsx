@@ -1,18 +1,47 @@
 import { useState } from "react";
 import Navbar from "../components/molecules/navbar";
+import Preset from "../components/atoms/timerPresetCards";
 
 const mp3URL = "/alarm.mp3";
 
 let breakLength = 300;
 let workLength = 1500;
 let number = workLength;
-let mode = "default";
+let mode = "Pomodoro";
 let isPaused = false;
 
 export default function Timer() {
   const [timer, setTimer] = useState(convertSeconds(workLength));
   const [timerRunning, setTimerRunning] = useState(false);
   const [onWork, setOnWork] = useState(true);
+
+  const setDefault = () => {
+    breakLength = 300;
+    workLength = 1500;
+    setTimer(convertSeconds(workLength));
+    mode = "Pomodoro";
+  };
+
+  const setTJ = () => {
+    breakLength = 1200;
+    workLength = 2700;
+    setTimer(convertSeconds(workLength));
+    mode = "TJ Method";
+  };
+
+  const setShort = () => {
+    breakLength = 300;
+    workLength = 1200;
+    setTimer(convertSeconds(workLength));
+    mode = "Short Session";
+  };
+
+  const setLong = () => {
+    breakLength = 900;
+    workLength = 2400;
+    setTimer(convertSeconds(workLength));
+    mode = "Long Session";
+  };
 
   const handleSubmit = () => {
     isPaused = false;
@@ -81,12 +110,23 @@ export default function Timer() {
   return (
     <main className=" bg-minty">
       <Navbar></Navbar>
-      <div className="flex justify-center text-center ">
+      <div className="flex justify-center pt-20 text-center ">
         <section className="py-40">
-          <div id="timer-elem" className="p-12 text-9xl">
+          <div className="flex justify-center">
+            {onWork ? (
+              <div className=" p-2 text-xl font-bold text-midDarkGreen">
+                Work Mode
+              </div>
+            ) : (
+              <div>Break Mode</div>
+            )}
+          </div>
+
+          <div id="timer-elem" className="p-12 pt-0 text-9xl font-bold">
             {timer}
           </div>
-          {onWork ? <div>Work Mode</div> : <div>Break Mode</div>}
+          <div className="text-4xl">{mode} Timer</div>
+
           {timerRunning === true ? (
             <button
               onClick={resetSubmit}
@@ -103,6 +143,39 @@ export default function Timer() {
             </button>
           )}
         </section>
+      </div>
+      <div className=" bg-greenish p-12">
+        <p className="text-center text-6xl">Study Timer Presets</p>
+        <div className="flex justify-center">
+          <button onClick={setDefault}>
+            <Preset
+              title="Pomodoro"
+              workLength="Work (25mins)"
+              breakLength="Break (5mins)"
+            ></Preset>
+          </button>
+          <button onClick={setTJ}>
+            <Preset
+              title="TJ Method"
+              workLength="Work (45mins)"
+              breakLength="Break (20mins)"
+            ></Preset>
+          </button>
+          <button onClick={setShort}>
+            <Preset
+              title="Short Session"
+              workLength="Work (20mins)"
+              breakLength="Break (5mins)"
+            ></Preset>
+          </button>
+          <button onClick={setLong}>
+            <Preset
+              title="Long Session"
+              workLength="Work (40mins)"
+              breakLength="Break (15mins)"
+            ></Preset>
+          </button>
+        </div>
       </div>
     </main>
   );

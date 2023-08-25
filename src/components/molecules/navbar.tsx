@@ -25,7 +25,7 @@ export default function Navbar() {
           <NavbarBtn name="Self-Quiz" goto="/selfQuiz"></NavbarBtn>
         </li>
         <li>
-          <NavbarBtn name="About Us"></NavbarBtn>
+          <NavbarBtn name="About Us" goto="/#aboutsec"></NavbarBtn>
         </li>
         <li>
           <NavbarBtn name="Donate" goto="/donate"></NavbarBtn>

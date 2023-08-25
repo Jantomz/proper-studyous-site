@@ -8,11 +8,14 @@ export default function Header() {
             way.
           </h2>
           <div className="flex w-full items-center justify-center">
-            <input
-              type="button"
-              className=" m-4 rounded-full bg-greenish p-3 text-white"
-              value="Learn More"
-            ></input>
+            <a href="#aboutsec">
+              <button
+                id="homeLMB"
+                className=" m-4 rounded-full bg-greenish p-3 text-white"
+              >
+                Learn More
+              </button>
+            </a>
           </div>
         </div>
       </div>
