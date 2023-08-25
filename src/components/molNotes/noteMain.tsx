@@ -93,7 +93,7 @@ export default function MolNotes() {
 
 const button = document.getElementById("submitButton");
 
-button.addEventListener("click", function () {
-  const title = document.getElementById("title");
-  console.log(title);
-});
+// button.addEventListener("click", function () {
+//   const title = document.getElementById("title");
+//   console.log(title);
+// });
