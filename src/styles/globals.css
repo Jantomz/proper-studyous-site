@@ -7,3 +7,24 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
 }
+
+.header-container {
+  background-image: url("/background.jpg");
+  height: 900px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar-btn {
+  text-decoration: underline solid transparent;
+  text-underline-offset: 1px;
+  transition: text-decoration 90ms ease-in-out;
+  transition: text-underline-offset 90ms ease-in-out;
+}
+
+.navbar-btn:hover {
+  text-decoration: underline solid currentColor;
+  text-underline-offset: 8px;
+}
