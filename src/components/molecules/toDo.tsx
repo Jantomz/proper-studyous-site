@@ -4,8 +4,6 @@ let toDos = [""];
 
 export default function ToDo() {
   const [toDo, setToDo] = useState("");
-  //   const [listProper, setListProper] = useState("");
-  let list = "";
 
   function handleSubmit() {
     event?.preventDefault();
@@ -42,15 +40,15 @@ export default function ToDo() {
   }
 
   return (
-    <div>
-      <div id="title">Notepad:</div>
+    <div className="max-md:hidden">
+      <div id="title">Notepad (To Do):</div>
       <form className="flex justify-center">
         <input
           type="text"
           required
           value={toDo}
           onChange={(event) => setToDo(event.target.value)}
-          className=" m-8 p-2"
+          className=" m-8 p-2 max-sm:m-0"
         ></input>
         {toDo.length > 0 ? (
           <button type="submit" onClick={handleSubmit}>

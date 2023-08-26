@@ -1,7 +1,7 @@
 export default function LogoHero() {
   return (
     <a
-      className="flex items-center justify-center px-8 text-white underline-offset-8 hover:underline"
+      className="flex items-center justify-center px-8 text-white underline-offset-8 hover:underline max-lg:p-0"
       href="/"
     >
       <img src="logo.svg" className="m-4 w-12"></img>

@@ -72,12 +72,15 @@ export default function Quiz() {
   }
 
   return (
-    <div>
+    <div className="pt-16">
       {!review ? (
         <div className="w-full bg-mintWhite pt-3">
-          <div className="m-12 mt-32 flex rounded-2xl bg-darkGreen pb-20 pt-20 ">
-            <div className="mx-auto flex w-1/3 flex-col items-center justify-center rounded-xl bg-minty p-10">
-              <label htmlFor="question" className="text-4xl lg:text-5xl">
+          <div className="m-12 mt-32 flex rounded-2xl bg-darkGreen pb-20 pt-20 max-lg:flex-col">
+            <div className="mx-auto flex w-1/3 flex-col items-center justify-center rounded-xl bg-minty p-10 max-xl:w-4/5 max-md:p-4">
+              <label
+                htmlFor="question"
+                className="text-4xl max-sm:text-xl lg:text-5xl"
+              >
                 Question:
               </label>
               <textarea
@@ -88,7 +91,7 @@ export default function Quiz() {
                 className="mt-8 h-32 w-5/6 rounded-md bg-basWhite p-2"
               ></textarea>
             </div>
-            <div className="mx-auto flex h-full flex-col items-center justify-center py-48">
+            <div className="mx-auto flex h-full flex-col items-center justify-center py-48 text-center max-lg:py-8">
               <div>You have {answers.length - 1} questions in your deck</div>
 
               {question.length > 0 && answer.length > 0 ? (
@@ -120,8 +123,11 @@ export default function Quiz() {
               ) : null}
             </div>
 
-            <div className="mx-auto flex w-1/3 flex-col items-center justify-center rounded-xl bg-minty p-10">
-              <label htmlFor="answer" className="pb-3 text-4xl lg:text-5xl">
+            <div className="mx-auto flex w-1/3 flex-col items-center justify-center rounded-xl bg-minty p-10 max-xl:w-4/5 max-md:p-4">
+              <label
+                htmlFor="answer"
+                className="pb-3 text-4xl max-sm:text-xl lg:text-5xl"
+              >
                 Answer:
               </label>
               <textarea
@@ -141,7 +147,7 @@ export default function Quiz() {
           {qMode ? (
             <div>
               <div className="p-8 text-center text-5xl">Question</div>
-              <div className="rounded-md bg-midDarkGreen p-8 text-center text-4xl text-veryLight">
+              <div className="rounded-md bg-midDarkGreen p-8 text-center text-4xl text-veryLight max-md:text-base">
                 {questions[index]?.endsWith("?")
                   ? questions[index]
                   : `${questions[index]}?`}
@@ -158,7 +164,7 @@ export default function Quiz() {
           ) : (
             <div>
               <div className="p-8 text-center text-5xl ">Answer</div>
-              <div className="rounded-md bg-midDarkGreen p-8 text-center text-4xl text-veryLight">
+              <div className="rounded-md bg-midDarkGreen p-8 text-center text-4xl text-veryLight max-md:text-base">
                 {answers[index]}
               </div>
               <div className="flex justify-center">

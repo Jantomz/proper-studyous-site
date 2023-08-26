@@ -5,7 +5,6 @@ export default function SelfQuiz() {
   return (
     <main>
       <Navbar></Navbar>
-      SelfQuiz
       <Quiz></Quiz>
     </main>
   );

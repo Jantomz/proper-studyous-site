@@ -338,11 +338,14 @@ export default function MolNotes() {
   }
 
   return (
-    <div className="h-screen w-full bg-basWhite pt-28" id="main">
-      <div className="w-fill mx-36 mt-16 flex h-full rounded-xl bg-mintWhite pt-10">
+    <div className=" bg-basWhite pt-28" id="main">
+      <div className="w-fill mx-36 mt-16 flex h-full rounded-xl bg-mintWhite pt-10 max-xl:mx-0 max-md:flex-col-reverse max-md:items-center max-md:justify-center">
         <div className="h-fill mx-10 w-3/5 overflow-scroll pt-1">
-          <form>
-            <label htmlFor="title" className="text-4xl lg:text-5xl">
+          <form className="mx-0">
+            <label
+              htmlFor="title"
+              className="text-4xl max-md:text-xl lg:text-5xl"
+            >
               Title:
             </label>
             <br></br>
@@ -359,7 +362,10 @@ export default function MolNotes() {
             <br></br>
             <br></br>
 
-            <label htmlFor="name" className="text-4xl lg:text-5xl">
+            <label
+              htmlFor="name"
+              className="text-4xl max-md:text-xl lg:text-5xl"
+            >
               Name:
             </label>
             <br></br>
@@ -370,13 +376,16 @@ export default function MolNotes() {
               name="name"
               onChange={handleName}
               value={name}
-              className="mt-3 h-10 w-5/6 bg-basWhite p-2"
+              className="mt-3 h-10 w-5/6 bg-basWhite p-2 "
             ></input>
 
             <br></br>
             <br></br>
 
-            <label htmlFor="classe" className="text-4xl lg:text-5xl">
+            <label
+              htmlFor="classe"
+              className="text-4xl max-md:text-xl lg:text-5xl"
+            >
               Class:
             </label>
             <br></br>
@@ -393,7 +402,10 @@ export default function MolNotes() {
             <br></br>
             <br></br>
 
-            <label htmlFor="datey" className="text-4xl lg:text-5xl">
+            <label
+              htmlFor="datey"
+              className="text-4xl max-md:text-xl lg:text-5xl"
+            >
               Date:
             </label>
             <br></br>
@@ -411,7 +423,10 @@ export default function MolNotes() {
             <br></br>
             {style === "free" ? (
               <div>
-                <label htmlFor="notes" className="text-4xl lg:text-5xl">
+                <label
+                  htmlFor="notes"
+                  className="text-4xl max-md:text-xl lg:text-5xl"
+                >
                   Notes:
                 </label>
                 <br></br>
@@ -429,7 +444,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="firstKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="firstKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   First Key Point:
                 </label>
                 <br></br>
@@ -444,7 +462,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="firstKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -463,7 +481,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="secondKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="secondKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Second Key Point:
                 </label>
                 <br></br>
@@ -478,7 +499,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="secondKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -497,7 +518,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="thirdKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="thirdKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Third Key Point:
                 </label>
                 <br></br>
@@ -512,7 +536,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="thirdKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -531,7 +555,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="fourthKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="fourthKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Fourth Key Point:
                 </label>
                 <br></br>
@@ -546,7 +573,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="fourthKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -565,7 +592,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="fifthKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="fifthKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Fifth Key Point:
                 </label>
                 <br></br>
@@ -580,7 +610,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="fifthKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -599,7 +629,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="sixthKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="sixthKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Sixth Key Point:
                 </label>
                 <br></br>
@@ -614,7 +647,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="sixthKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -633,7 +666,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="seventhKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="seventhKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Seventh Key Point:
                 </label>
                 <br></br>
@@ -648,7 +684,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="seventhKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -667,7 +703,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="eighthKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="eighthKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Eighth Key Point:
                 </label>
                 <br></br>
@@ -682,7 +721,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="eighthKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -701,7 +740,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="ninthKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="ninthKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Ninth Key Point:
                 </label>
                 <br></br>
@@ -716,7 +758,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="ninthKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -735,7 +777,10 @@ export default function MolNotes() {
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
-                <label htmlFor="tenthKey" className="text-4xl lg:text-xl">
+                <label
+                  htmlFor="tenthKey"
+                  className="text-4xl max-md:text-xl lg:text-xl"
+                >
                   Tenth Key Point:
                 </label>
                 <br></br>
@@ -750,7 +795,7 @@ export default function MolNotes() {
                 ></input>
                 <label
                   htmlFor="tenthKeyContent"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Content:
                 </label>
@@ -769,7 +814,7 @@ export default function MolNotes() {
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
                 <label
                   htmlFor="summary"
-                  className="block pt-2 text-4xl lg:text-xl"
+                  className="block pt-2 text-4xl max-md:text-xl lg:text-xl"
                 >
                   Summary:
                 </label>
@@ -785,7 +830,7 @@ export default function MolNotes() {
             ) : null}
           </form>
         </div>
-        <div className="mt-8 h-full w-1/4">
+        <div className=" mt-8 h-full w-1/4 max-md:mb-8 max-md:w-4/5">
           <div className=" rounded-2xl bg-greenish">
             <h1 className="ml-2 mt-2 pl-4 pt-4 text-2xl lg:text-4xl">
               Note Style
@@ -797,7 +842,7 @@ export default function MolNotes() {
                 }}
                 name="choice"
                 defaultValue={"DEFAULT"}
-                className="m-8 h-10 w-5/6 rounded-md bg-basWhite"
+                className="m-8 h-10 w-5/6 rounded-md bg-basWhite "
               >
                 <option value="DEFAULT" hidden>
                   Select Style
@@ -807,8 +852,10 @@ export default function MolNotes() {
                 <option value="free">Free Write</option>
               </select>
               {style === "cornell" || style === "outline" ? (
-                <div className="">
-                  <label className="m-8">Number of Key Ideas</label>
+                <div className="max-md:m-0">
+                  <label className="m-8 max-lg:text-sm">
+                    Number of Key Ideas
+                  </label>
                   <input
                     required
                     type="number"
@@ -839,7 +886,11 @@ export default function MolNotes() {
               ) : null}
             </div>
           </div>
-          <img src="realone.svg" alt="" className="mx-auto mt-32 w-64"></img>
+          <img
+            src="realone.svg"
+            alt=""
+            className="mx-auto mt-32 w-64 p-8 max-lg:w-36 max-md:hidden"
+          ></img>
         </div>
       </div>
     </div>

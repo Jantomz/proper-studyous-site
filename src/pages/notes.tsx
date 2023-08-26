@@ -5,7 +5,6 @@ export default function Notes() {
   return (
     <main>
       <Navbar></Navbar>
-      Notes
       <MolNotes></MolNotes>
     </main>
   );

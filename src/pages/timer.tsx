@@ -128,10 +128,10 @@ export default function Timer() {
   return (
     <main className=" bg-minty">
       <Navbar></Navbar>
-      <div className="absolute left-10 top-40">
+      <div className="absolute left-10 top-64">
         <ToDo></ToDo>
       </div>
-      <div className="flex justify-center pt-20 text-center ">
+      <div className="flex justify-center pt-20 text-center">
         <section className="py-40">
           <div className="flex justify-center">
             {onWork ? (
@@ -145,11 +145,14 @@ export default function Timer() {
             )}
           </div>
 
-          <div id="timer-elem" className="p-12 pt-0 text-9xl font-bold">
+          <div
+            id="timer-elem"
+            className="p-12 pt-0 text-9xl font-bold max-sm:p-6 max-sm:text-6xl"
+          >
             {timer}
           </div>
 
-          <div className="text-4xl">{mode} Timer</div>
+          <div className="text-4xl max-sm:text-xl">{mode} Timer</div>
 
           {timerRunning === true ? (
             <button
@@ -170,7 +173,7 @@ export default function Timer() {
       </div>
       <div className=" bg-greenish p-12">
         <p className="text-center text-6xl">Study Timer Presets</p>
-        <div className="flex justify-center">
+        <div className="flex justify-center max-xl:flex-col">
           <button onClick={setDefault}>
             <Preset
               title="Pomodoro"

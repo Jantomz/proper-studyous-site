@@ -44,7 +44,7 @@ html {
 .list {
   list-style-type: circle;
   overflow: scroll;
-  height: 400px;
+  height: 200px;
   text-align: left;
   background-color: rgba(80, 115, 100, 0.8);
   color: white;
@@ -56,4 +56,16 @@ html {
 
 #title {
   font-size: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .header-container {
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .list {
+    width: 160px;
+  }
 }
