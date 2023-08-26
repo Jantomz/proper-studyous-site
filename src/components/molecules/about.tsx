@@ -1,7 +1,7 @@
 import ContainerCard from "../atoms/containerCard";
 export default function About() {
   const ContentJaden =
-    "Hi! I am a 16 year old student, studying computer science and all its amazing aspects! I enjoy learning front-end and am in the process of learning more. I hope that I can make more organized projects in the future! (PLACEHOLDER)";
+    "Hi! I am a 16 year old student, studying computer science and all its amazing aspects! I enjoy learning front-end and am in the process of learning more. I hope that I can make more organized projects in the future!";
   const ContentJack =
     "Hey! I’ve been coding in HTML, CSS, JavaScript, MongoDB, Node.js, and several others for over three weeks! I profoundly enjoy coding, solving problems, and working as an equal member of a team! Love you all <3";
   const ContentHarnake =
