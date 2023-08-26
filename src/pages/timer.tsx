@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "../components/molecules/navbar";
 import Preset from "../components/atoms/timerPresetCards";
 import ToDo from "../components/molecules/toDo";
+import Footer from "~/components/molecules/footer";
 
 const mp3URL = "/alarm.mp3";
 
@@ -211,6 +212,7 @@ export default function Timer() {
           </button>
         </div>
       </div>
+      <Footer></Footer>
     </main>
   );
 }
