@@ -15,9 +15,11 @@ export default function How() {
               Fortunately, the writer needn't fear of reading their notes, for
               our note-formatter will make them appear far more appealing!
             </p>
-            <div className="z-50 mx-5 mt-4 flex h-16 content-end items-center justify-center rounded-xl bg-minty text-center text-2xl">
-              <div className="max-sm:text-sm">Notes</div>
-            </div>
+            <a href="/notes">
+              <div className="z-50 mx-5 mt-4 flex h-16 content-end items-center justify-center rounded-xl bg-minty  text-center text-2xl hover:bg-midDarkGreen">
+                <div className="max-sm:text-sm">Notes</div>
+              </div>
+            </a>
           </div>
           <div className="border-1 m-8 mx-10 w-1/4 rounded-xl bg-greenish p-3 max-lg:w-4/5">
             <p className="text-sm lg:text-lg">
@@ -29,9 +31,11 @@ export default function How() {
               included with the timer, so you can cross off the items that you
               finish!
             </p>
-            <div className="z-50 mx-5 mt-4 flex h-16 content-end items-center justify-center rounded-xl bg-minty text-center text-2xl">
-              <div className="max-sm:text-sm">Timer</div>
-            </div>
+            <a href="/timer">
+              <div className="z-50 mx-5 mt-4 flex h-16 content-end items-center justify-center rounded-xl bg-minty text-center text-2xl hover:bg-midDarkGreen">
+                <div className="max-sm:text-sm">Timer</div>
+              </div>
+            </a>
           </div>
           <div className="border-1 mx-10 w-1/4 rounded-xl bg-greenish p-3 max-lg:w-4/5">
             <p className="text-sm lg:text-lg">
@@ -43,9 +47,11 @@ export default function How() {
               questions. They can input questions and answers to their heart's
               content!
             </p>
-            <div className="z-50 mx-5 mt-4 flex h-16 content-end items-center justify-center rounded-xl bg-minty text-center text-2xl">
-              <div className="max-sm:text-sm">Self-Quiz</div>
-            </div>
+            <a href="/selfQuiz">
+              <div className="z-50 mx-5 mt-4 flex h-16 content-end items-center justify-center rounded-xl bg-minty text-center text-2xl hover:bg-midDarkGreen">
+                <div className="max-sm:text-sm">Self-Quiz</div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
