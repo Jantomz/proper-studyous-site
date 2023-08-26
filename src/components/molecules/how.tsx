@@ -34,7 +34,7 @@ export default function How() {
           <div className="border-1 mx-10 w-1/4 rounded-xl bg-greenish p-3">
             <p className="text-sm lg:text-lg">
               Lastly, feel free to use our self-quiz program, in which you can
-              input any questions and answers oyu may come up with while
+              input any questions and answers you may come up with while
               studying. Then, when you are ready, the program will select a
               random question and display it, similar to the way in which a
               flashcard works. This will repeat until the user runs out of

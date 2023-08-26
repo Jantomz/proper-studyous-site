@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/molecules/navbar";
 import Preset from "../components/atoms/timerPresetCards";
+import ToDo from "../components/molecules/toDo";
 
 const mp3URL = "/alarm.mp3";
 
@@ -127,6 +128,9 @@ export default function Timer() {
   return (
     <main className=" bg-minty">
       <Navbar></Navbar>
+      <div className="absolute left-10 top-40">
+        <ToDo></ToDo>
+      </div>
       <div className="flex justify-center pt-20 text-center ">
         <section className="py-40">
           <div className="flex justify-center">
@@ -144,6 +148,7 @@ export default function Timer() {
           <div id="timer-elem" className="p-12 pt-0 text-9xl font-bold">
             {timer}
           </div>
+
           <div className="text-4xl">{mode} Timer</div>
 
           {timerRunning === true ? (

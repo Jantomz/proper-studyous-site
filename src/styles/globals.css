@@ -40,3 +40,20 @@
 html {
   scroll-behavior: smooth;
 }
+
+.list {
+  list-style-type: circle;
+  overflow: scroll;
+  height: 400px;
+  text-align: left;
+  background-color: rgba(80, 115, 100, 0.8);
+  color: white;
+  padding: 40px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 25em;
+}
+
+#title {
+  font-size: 30px;
+}

@@ -4,6 +4,7 @@ import About from "../components/molecules/about";
 import How from "../components/molecules/how";
 import Footer from "../components/molecules/footer";
 import Contact from "../components/molecules/contact";
+
 export default function Home() {
   return (
     <main>
