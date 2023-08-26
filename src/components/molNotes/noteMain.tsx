@@ -1,12 +1,26 @@
+import { X509Certificate } from "crypto";
 import React, { useState } from "react";
-import { jsPDF } from "jspdf";
+
+let fonts = {
+  Roboto: {
+    normal: "fonts/Roboto-Regular.ttf",
+    bold: "fonts/Roboto-Medium.ttf",
+    italics: "fonts/Roboto-Italic.ttf",
+    bolditalics: "fonts/Roboto-MediumItalic.ttf",
+  },
+};
 
 // Must be called in the same order at the top level of a function
 // const [initial state, function] = useState();
+let pdfMake = require("pdfmake/build/pdfmake.js");
+let pdfFonts = require("pdfmake/build/vfs_fonts.js");
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-let today = new Date();
+let dt = new Date();
 
-let date = today.toISOString().split("T")[0];
+dt.setTime(dt.getTime() - dt.getTimezoneOffset() * 60 * 1000);
+
+let date = dt.toISOString().split("T")[0];
 
 export default function MolNotes() {
   const [title, setValue] = useState("");
@@ -37,6 +51,7 @@ export default function MolNotes() {
   const [keyNinth, setKeyNinth] = useState("");
   const [keysContentTenth, setKeysContentTenth] = useState("");
   const [keyTenth, setKeyTenth] = useState("");
+  const [summary, setSummary] = useState("");
 
   const handleChange = (event: any) => {
     setValue(event.target.value);
@@ -142,34 +157,184 @@ export default function MolNotes() {
     setKeysContentTenth(event.target.value);
   };
 
+  const handleSummary = (event: any) => {
+    setSummary(event.target.value);
+  };
+
   function handleButton() {
-    console.log(title);
-    console.log(name);
-    console.log(classe);
-    console.log(datey);
-    console.log(notes);
-    console.log(style);
     createPDF();
   }
 
   //jspdf portion
 
   function createPDF() {
-    const doc = new jsPDF();
-    const pageHeight = doc.internal.pageSize.height;
-    const pageWidth = doc.internal.pageSize.width;
+    let docDefinition;
 
-    doc.setFont("Times New Roman", "bold");
+    if (style === "cornell") {
+      docDefinition = {
+        header: { text: `\nCornell Method Note Taking`, style: "header" },
+        footer: { text: `Studyous 2023 \u00A9 `, style: "header" },
 
-    doc.setFontSize(32);
-    doc.text(title, pageWidth / 2, 20, { align: "center" });
+        content: [
+          { text: `${title}`, style: "title" },
+          { text: `Property of ${name}`, style: "subtitle" },
+          { text: `For ${classe} | ${datey}`, style: "subtitle" },
+          {
+            layout: "headerLineOnly",
+            table: {
+              headerRows: 1,
+              widths: [100, "*"],
 
-    doc.setFont("Times New Roman", "normal");
+              body: [
+                [
+                  { text: "\n\nKey Points", bold: true, fontSize: 20 },
+                  { text: "\n\nContent", bold: true, fontSize: 20 },
+                ],
+                ["\n", "\n"],
+                [{ text: `${keys}`, fontSize: 16 }, `${keysContent}`],
+                ["\n", "\n"],
 
-    doc.setFontSize(16);
-    doc.text(name, pageWidth / 2, 30, { align: "center" });
+                [{ text: `${keyTwo}`, fontSize: 16 }, `${keysContentTwo}`],
+                ["\n", "\n"],
 
-    doc.save("sample-doc.pdf");
+                [{ text: `${keyThird}`, fontSize: 16 }, `${keysContentThird}`],
+                ["\n", "\n"],
+
+                [
+                  { text: `${keyFourth}`, fontSize: 16 },
+                  `${keysContentFourth}`,
+                ],
+                ["\n", "\n"],
+
+                [{ text: `${keyFifth}`, fontSize: 16 }, `${keysContentFifth}`],
+                ["\n", "\n"],
+
+                [{ text: `${keySixth}`, fontSize: 16 }, `${keysContentSixth}`],
+                ["\n", "\n"],
+
+                [
+                  { text: `${keySeventh}`, fontSize: 16 },
+                  `${keysContentSeventh}`,
+                ],
+                ["\n", "\n"],
+
+                [
+                  { text: `${keyEighth}`, fontSize: 16 },
+                  `${keysContentEighth}`,
+                ],
+                ["\n", "\n"],
+
+                [{ text: `${keyNinth}`, fontSize: 16 }, `${keysContentNinth}`],
+                ["\n", "\n"],
+
+                [{ text: `${keyTenth}`, fontSize: 16 }, `${keysContentTenth}`],
+              ],
+            },
+          },
+          { text: "\n\n" },
+          { text: `Summary`, style: "summary" },
+          { text: `${summary}`, margin: [20, 5] },
+        ],
+        styles: {
+          title: {
+            fontSize: 32,
+            bold: true,
+            alignment: "center",
+          },
+          subtitle: {
+            fontSize: 12,
+            alignment: "center",
+            color: "gray",
+          },
+          header: {
+            alignment: "center",
+            color: "gray",
+          },
+          summary: {
+            fontSize: 16,
+            bold: true,
+          },
+        },
+      };
+    } else if (style === "outline") {
+      docDefinition = {
+        header: { text: `\nOutlining Style Note Taking`, style: "header" },
+        content: [
+          { text: `${title}`, style: "title" },
+          { text: `Property of ${name}`, style: "subtitle" },
+          { text: `For ${classe} | ${datey}`, style: "subtitle" },
+          { text: "\n" },
+          { text: `${keys}`, style: "key" },
+          { text: `${keysContent}`, margin: [40, 5] },
+          { text: `${keyTwo}`, style: "key" },
+          { text: `${keysContentTwo}`, margin: [40, 5] },
+          { text: `${keyThird}`, style: "key" },
+          { text: `${keysContentThird}`, margin: [40, 5] },
+          { text: `${keyFourth}`, style: "key" },
+          { text: `${keysContentFourth}`, margin: [40, 5] },
+          { text: `${keyFifth}`, style: "key" },
+          { text: `${keysContentFifth}`, margin: [40, 5] },
+          { text: `${keySixth}`, style: "key" },
+          { text: `${keySixth}`, margin: [40, 5] },
+          { text: `${keySeventh}`, style: "key" },
+          { text: `${keysContentSeventh}`, margin: [40, 5] },
+          { text: `${keyEighth}`, style: "key" },
+          { text: `${keysContentEighth}`, margin: [40, 5] },
+          { text: `${keyNinth}`, style: "key" },
+          { text: `${keysContentNinth}`, margin: [40, 5] },
+          { text: `${keyTenth}`, style: "key" },
+          { text: `${keysContentTenth}`, margin: [40, 5] },
+          { text: "Summary", style: "key" },
+          { text: `${summary}`, margin: [40, 5] },
+        ],
+        styles: {
+          title: {
+            fontSize: 32,
+            bold: true,
+            alignment: "center",
+          },
+          subtitle: {
+            fontSize: 12,
+            alignment: "center",
+            color: "gray",
+          },
+          header: {
+            alignment: "center",
+            color: "gray",
+          },
+          key: {
+            fontSize: 20,
+          },
+        },
+      };
+    } else {
+      docDefinition = {
+        header: { text: `\nFree-Write Note Taking`, style: "header" },
+        content: [
+          { text: `${title}`, style: "title" },
+          { text: `Property of ${name}`, style: "subtitle" },
+          { text: `For ${classe} | ${datey}`, style: "subtitle" },
+          { text: `${notes}`, margin: 20 },
+        ],
+        styles: {
+          title: {
+            fontSize: 32,
+            bold: true,
+            alignment: "center",
+          },
+          subtitle: {
+            fontSize: 12,
+            alignment: "center",
+            color: "gray",
+          },
+          header: {
+            alignment: "center",
+            color: "gray",
+          },
+        },
+      };
+    }
+    pdfMake.createPdf(docDefinition).open();
   }
 
   return (
@@ -260,7 +425,7 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" ? (
+            {style === "cornell" || style === "outline" ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -293,7 +458,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 1 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 1 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -326,7 +492,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 2 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 2 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -359,7 +526,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 3 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 3 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -392,7 +560,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 4 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 4 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -425,7 +594,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 5 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 5 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -458,7 +628,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 6 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 6 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -491,7 +662,8 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-            {style === "cornell" && Number(numKeys) > 7 ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 7 ? (
               <div>
                 <hr className="text-red h-8 w-1/4 border-red-800"></hr>
 
@@ -524,20 +696,90 @@ export default function MolNotes() {
                 ></textarea>
               </div>
             ) : null}
-
-            {style === "outline" ? (
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 8 ? (
               <div>
-                <label htmlFor="notes" className="text-4xl lg:text-5xl">
-                  Notes:
+                <hr className="text-red h-8 w-1/4 border-red-800"></hr>
+
+                <label htmlFor="ninthKey" className="text-4xl lg:text-xl">
+                  Ninth Key Point:
                 </label>
                 <br></br>
+                <input
+                  required
+                  type="text"
+                  id="ninthKey"
+                  name="ninthKey"
+                  onChange={handleKeyNinth}
+                  value={keyNinth}
+                  className=" mt-3 min-h-[30px] w-5/6 bg-basWhite p-2"
+                ></input>
+                <label
+                  htmlFor="ninthKeyContent"
+                  className="block pt-2 text-4xl lg:text-xl"
+                >
+                  Content:
+                </label>
                 <textarea
                   required
-                  id="notes"
-                  name="notes"
-                  onChange={handleNotes}
-                  value={notes}
-                  className="mt-3 h-32 min-h-[600px] w-5/6 bg-basWhite p-2"
+                  id="ninthKeyContent"
+                  name="ninthKeyContent"
+                  onChange={handleKeysContentNinth}
+                  value={keysContentNinth}
+                  className="mb-8 mt-3 min-h-[30px] w-5/6 bg-basWhite p-2"
+                ></textarea>
+              </div>
+            ) : null}
+            {(style === "cornell" || style === "outline") &&
+            Number(numKeys) > 9 ? (
+              <div>
+                <hr className="text-red h-8 w-1/4 border-red-800"></hr>
+
+                <label htmlFor="tenthKey" className="text-4xl lg:text-xl">
+                  Tenth Key Point:
+                </label>
+                <br></br>
+                <input
+                  required
+                  type="text"
+                  id="tenthKey"
+                  name="tenthKey"
+                  onChange={handleKeyTenth}
+                  value={keyTenth}
+                  className=" mt-3 min-h-[30px] w-5/6 bg-basWhite p-2"
+                ></input>
+                <label
+                  htmlFor="tenthKeyContent"
+                  className="block pt-2 text-4xl lg:text-xl"
+                >
+                  Content:
+                </label>
+                <textarea
+                  required
+                  id="tenthKeyContent"
+                  name="tenthKeyContent"
+                  onChange={handleKeysContentTenth}
+                  value={keysContentTenth}
+                  className="mb-8 mt-3 min-h-[30px] w-5/6 bg-basWhite p-2"
+                ></textarea>
+              </div>
+            ) : null}
+            {style === "cornell" || style === "outline" ? (
+              <div>
+                <hr className="text-red h-8 w-1/4 border-red-800"></hr>
+                <label
+                  htmlFor="summary"
+                  className="block pt-2 text-4xl lg:text-xl"
+                >
+                  Summary:
+                </label>
+                <textarea
+                  required
+                  id="summary"
+                  name="summary"
+                  onChange={handleSummary}
+                  value={summary}
+                  className="mb-8 mt-3 min-h-[30px] w-5/6 bg-basWhite p-2"
                 ></textarea>
               </div>
             ) : null}
@@ -583,14 +825,18 @@ export default function MolNotes() {
             </div>
 
             <div className="flex place-content-center items-center">
-              <button
-                onClick={handleButton}
-                id="submitButton"
-                type="submit"
-                className="mb-6 rounded-md bg-minty px-8 py-4 hover:bg-midDarkGreen"
-              >
-                Create Notes
-              </button>
+              {style === "cornell" ||
+              style === "outline" ||
+              style === "free" ? (
+                <button
+                  onClick={handleButton}
+                  id="submitButton"
+                  type="submit"
+                  className="mb-6 rounded-md bg-minty px-8 py-4 hover:bg-midDarkGreen"
+                >
+                  Create Notes
+                </button>
+              ) : null}
             </div>
           </div>
           <img src="realone.svg" alt="" className="mx-auto mt-32 w-64"></img>

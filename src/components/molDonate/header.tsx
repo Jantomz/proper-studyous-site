@@ -1,4 +1,17 @@
+import { useState } from "react";
+
 export default function Header() {
+  const [text, setText] = useState("");
+
+  function handleSubmit() {
+    if (text.length > 0) {
+      setText("");
+    } else {
+      setText(
+        "Thank your consideration, however this is just a prototype and we are not accepting donations at this time."
+      );
+    }
+  }
   return (
     <div className="h-[550px] bg-minty p-60 text-center text-9xl">
       <div>Donate</div>
@@ -9,11 +22,14 @@ export default function Header() {
           everyone. However, donations are greatly appreciated. Thank you for
           supporting our small startup!
         </div>
-        <input
-          type="button"
+        <button
           className=" m-4 mt-48 rounded-full bg-greenish p-3 px-14 text-white"
           value="Donate"
-        ></input>
+          onClick={handleSubmit}
+        >
+          Donate
+        </button>
+        <div>{text}</div>
       </div>
     </div>
   );

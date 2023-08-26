@@ -17,6 +17,9 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  moduleContext: {
+    "./node_modules/pdfmake/build/vfs_fonts.js": "window",
+  },
 };
 
 export default config;
