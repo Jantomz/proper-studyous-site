@@ -8,7 +8,7 @@ export default function Header() {
       setText("");
     } else {
       setText(
-        "Thank your consideration, however this is just a prototype and we are not accepting donations at this time."
+        "Thank you for your consideration, however this is just a prototype and we are not accepting donations at this time."
       );
     }
   }
