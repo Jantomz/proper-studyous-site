@@ -30,9 +30,6 @@ export default function Navbar() {
         <li>
           <NavbarBtn name="Donate" goto="/donate"></NavbarBtn>
         </li>
-        <li>
-          <NavbarBtn name="Sign In" goto="/signIn"></NavbarBtn>
-        </li>
       </ul>
     </div>
   );

@@ -8,7 +8,7 @@ export default function Header() {
             way.
           </h2>
           <div className="flex w-full items-center justify-center">
-            <a href="#aboutsec">
+            <a href="#hiwSec">
               <button
                 id="homeLMB"
                 className=" m-4 rounded-full bg-greenish p-3 text-white"

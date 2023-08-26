@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import NavbarBtn from "../atoms/navbarBtn";
+
+let questions = ["u"];
+let answers = ["u"];
 
 export default function Quiz() {
+  // REACT WILL IMPORT THE THINGS OUTSIDE OF THE FUNCTION
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
-  let questions = [""];
-  let answers = [""];
 
   const handleQ = (event: any) => {
     setQuestion(event.target.value);
@@ -15,8 +18,6 @@ export default function Quiz() {
   };
 
   function handleSubmit() {
-    console.log(question);
-    console.log(answer);
     answers.push(answer);
     questions.push(question);
     console.log(questions);
@@ -57,13 +58,9 @@ export default function Quiz() {
           </button>
           <br></br>
           <br></br>
-          <button
-            className="bg-veryLight px-5 py-2"
-            onClick={handleReview}
-            id="reviewButton"
-          >
+          <NavbarBtn name="Review" goto="../../beQuizzed">
             Review
-          </button>
+          </NavbarBtn>
         </div>
 
         <div className="mx-auto h-full w-1/3 rounded-xl bg-minty p-10">
@@ -81,6 +78,17 @@ export default function Quiz() {
           ></textarea>
         </div>
       </div>
+      <p id="questionUpload"></p>
+      <p id="answerUpload"></p>
     </div>
   );
 }
+
+let qArray = questions;
+let aArray = answers;
+
+console.log(questions);
+console.log(answers);
+
+export { qArray };
+export { aArray };

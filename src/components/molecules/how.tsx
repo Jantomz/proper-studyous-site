@@ -1,8 +1,8 @@
 export default function How() {
   return (
-    <section>
-      <div className="h-96 w-full content-center justify-center bg-minty">
-        <h1 className="mb-4 pl-4 pt-4 text-4xl">How it Works</h1>
+    <section id="hiwSec">
+      <div className="w-full content-center justify-center bg-minty p-20 pb-5">
+        <h1 className="mb-4 pl-4 pt-4 text-4xl">How it Works:</h1>
         <div className="flex justify-between gap-2">
           <div className="border-1 mx-10 h-72 w-1/4 rounded-xl bg-greenish">
             <p className="ml-4 mt-4">Hello</p>

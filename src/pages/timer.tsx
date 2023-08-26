@@ -16,6 +16,8 @@ export default function Timer() {
   const [onWork, setOnWork] = useState(true);
 
   const setDefault = () => {
+    resetSubmit();
+
     breakLength = 300;
     workLength = 1500;
     setTimer(convertSeconds(workLength));
@@ -23,6 +25,8 @@ export default function Timer() {
   };
 
   const setTJ = () => {
+    resetSubmit();
+
     breakLength = 1200;
     workLength = 2700;
     setTimer(convertSeconds(workLength));
@@ -30,6 +34,8 @@ export default function Timer() {
   };
 
   const setShort = () => {
+    resetSubmit();
+
     breakLength = 300;
     workLength = 1200;
     setTimer(convertSeconds(workLength));
@@ -37,10 +43,20 @@ export default function Timer() {
   };
 
   const setLong = () => {
+    resetSubmit();
     breakLength = 900;
     workLength = 2400;
     setTimer(convertSeconds(workLength));
     mode = "Long Session";
+  };
+
+  const setJart = () => {
+    resetSubmit();
+
+    breakLength = 15;
+    workLength = 10;
+    setTimer(convertSeconds(workLength));
+    mode = "Jart";
   };
 
   const handleSubmit = () => {
@@ -55,20 +71,21 @@ export default function Timer() {
       number = breakLength;
     }
     setTimerRunning(true);
+
     function resetTime(endedProperly: boolean) {
       clearInterval(timerInterval);
-      const audio = new Audio(mp3URL);
-      audio.play();
       if (onWork) {
         setTimer(convertSeconds(breakLength));
       } else {
         setTimer(convertSeconds(workLength));
       }
-      setTimeout(function () {
-        alert("Timer Ended");
-      }, 1000);
       setTimerRunning(false);
       if (endedProperly) {
+        setTimeout(function () {
+          alert("Timer Ended");
+        }, 500);
+        const audio = new Audio(mp3URL);
+        audio.play();
         setOnWork(!onWork);
       } else {
         if (onWork) {
@@ -114,11 +131,13 @@ export default function Timer() {
         <section className="py-40">
           <div className="flex justify-center">
             {onWork ? (
-              <div className=" p-2 text-xl font-bold text-midDarkGreen">
+              <div className="p-2 text-xl font-bold text-midDarkGreen">
                 Work Mode
               </div>
             ) : (
-              <div>Break Mode</div>
+              <div className="p-2 text-xl font-bold text-midDarkGreen">
+                Break Mode
+              </div>
             )}
           </div>
 
@@ -173,6 +192,13 @@ export default function Timer() {
               title="Long Session"
               workLength="Work (40mins)"
               breakLength="Break (15mins)"
+            ></Preset>
+          </button>
+          <button onClick={setJart}>
+            <Preset
+              title="Jart"
+              workLength="Work (10s)"
+              breakLength="Break (15s)"
             ></Preset>
           </button>
         </div>
